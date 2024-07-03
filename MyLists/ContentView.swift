@@ -16,7 +16,6 @@ struct ContentView: View {
                         .frame(height: geo.size.height * 0.17)
                     
                     HStack {
-                        
                         Spacer()
                         
                         VStack{
@@ -25,7 +24,6 @@ struct ContentView: View {
                                 .bold()
                                 .frame(width: geo.size.width * 0.3)
                         }
-                        
                         Spacer()
                         
                         VStack{
@@ -69,39 +67,6 @@ struct ContentView: View {
         }
     }
 }
-
-// MVVM : Model View ViewModel 
-
-struct AssignmentView: View {
-    var body: some View {
-        Text("t1")
-            .navigationTitle("ASSIGNMENT")
-            .font(.system(size: 20))
-    }
-}
-
-struct WorkOutView: View {
-    var body: some View {
-        Text("t2")
-            .navigationTitle("WORK OUT")
-    }
-}
-
-struct DailyView: View {
-    var body: some View {
-        Text("t3")
-            .navigationTitle("DAILY")
-    }
-}
-
-struct MeetView: View {
-    var body: some View {
-        Text("t4")
-            .navigationTitle("MEET")
-    }
-}
-
-
 
 struct CustomNavLink<Content>: View where Content: View {
     @State var firstNaviLinkActive: Bool = false
