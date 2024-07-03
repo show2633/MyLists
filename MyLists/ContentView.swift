@@ -72,7 +72,7 @@ struct ContentView: View {
 
 // MVVM : Model View ViewModel 
 
-struct AssignMentView: View {
+struct AssignmentView: View {
     var body: some View {
         Text("t1")
             .navigationTitle("ASSIGNMENT")
@@ -141,7 +141,7 @@ struct CustomNavLink<Content>: View where Content: View {
     private func destinationView() -> some View {
         switch viewName {
         case "Assignment":
-            AssignMentView()
+            AssignmentView()
         case "Work Out":
             WorkOutView()
         case "Daily":
