@@ -8,10 +8,45 @@
 import SwiftUI
 
 struct AssignmentView: View {
+    @ObservedObject var tv = TestViewModel()
+    var coreDataManager = CoreDataManager()
+    
     var body: some View {
-        Text("t1")
-            .navigationTitle("ASSIGNMENT")
-            .font(.system(size: 20))
+        VStack{
+            List(tv.testModels) { tm in
+                HStack {
+                    Text("\(tm.content)")
+                    Text("\(tm.time)")
+                }
+                .swipeActions(edge: .leading, allowsFullSwipe: true) {
+                    Button {
+                         } label: {
+                             Label("Delete", systemImage: "trash.circle")
+                         }
+                             .tint(.red)
+                }
+            }
+           
+        }
+        .onAppear() {
+            tv.readData()
+            
+            var testModel: TestModel = TestModel()
+            testModel.content = "TestContent"
+            testModel.time = "TestTime"
+            coreDataManager.insertTestModel(testModel)
+        }
+        
+        VStack {
+            Button(action: {
+                let testModels = coreDataManager.getModelCore()
+                for testModel in testModels {
+                    print("Content: \(testModel.content), Time: \(testModel.time)")
+                }
+            }) {
+                Text("Save and Fetch User")
+            }
+        }
     }
 }
 
