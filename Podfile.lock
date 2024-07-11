@@ -952,6 +952,8 @@ PODS:
   - BoringSSL-GRPC/Implementation (0.0.32):
     - BoringSSL-GRPC/Interface (= 0.0.32)
   - BoringSSL-GRPC/Interface (0.0.32)
+  - ExytePopupView (3.0.4):
+    - SwiftUIIntrospect
   - Firebase/Analytics (10.28.1):
     - Firebase/Core
   - Firebase/Auth (10.28.1):
@@ -1160,8 +1162,10 @@ PODS:
   - nanopb/encode (2.30910.0)
   - PromisesObjC (2.4.0)
   - RecaptchaInterop (100.0.0)
+  - SwiftUIIntrospect (1.2.0)
 
 DEPENDENCIES:
+  - ExytePopupView
   - Firebase/Analytics
   - Firebase/Auth
   - Firebase/Core
@@ -1171,6 +1175,7 @@ SPEC REPOS:
   trunk:
     - abseil
     - BoringSSL-GRPC
+    - ExytePopupView
     - Firebase
     - FirebaseAnalytics
     - FirebaseAppCheckInterop
@@ -1191,10 +1196,12 @@ SPEC REPOS:
     - nanopb
     - PromisesObjC
     - RecaptchaInterop
+    - SwiftUIIntrospect
 
 SPEC CHECKSUMS:
   abseil: d121da9ef7e2ff4cab7666e76c5a3e0915ae08c3
   BoringSSL-GRPC: 1e2348957acdbcad360b80a264a90799984b2ba6
+  ExytePopupView: 357298b6f4ff95be11bf3d0e28e4c8404075b051
   Firebase: 49e62242b3ae422a002ab647a7e62a332a8c3ec1
   FirebaseAnalytics: 1e06fe7d246af7230b08d1d9cdca54a4624dd461
   FirebaseAppCheckInterop: 5315f40293191bfec04b2cfab0215760e441540a
@@ -1215,7 +1222,8 @@ SPEC CHECKSUMS:
   nanopb: 438bc412db1928dac798aa6fd75726007be04262
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
   RecaptchaInterop: 7d1a4a01a6b2cb1610a47ef3f85f0c411434cb21
+  SwiftUIIntrospect: 35fbc9ae46c869ae7290afdecf6f70c2b8c86b13
 
-PODFILE CHECKSUM: 55a7eabae6fc235d749d8ae22ec30a1d9f396e49
+PODFILE CHECKSUM: 454544861d82d5311e16c19b7dd28862d4b18f18
 
 COCOAPODS: 1.15.2

@@ -25,11 +25,10 @@ struct MainView: View {
     
     var body: some View {
         GeometryReader { geo in
-            LazyVStack {
+            NavigationStack {
                 Header()
-                NavigationStack {
-                    Spacer()
-                    
+                
+                LazyVStack {
                     VStack {
                         Spacer()
                             .frame(height: geo.size.height * 0.05)
@@ -43,6 +42,7 @@ struct MainView: View {
                                     .bold()
                                     .frame(width: geo.size.width * 0.3)
                             }
+                            
                             Spacer()
                                 .frame(width: geo.size.width * 0.15)
                             
@@ -54,12 +54,12 @@ struct MainView: View {
                             }
                             
                             Spacer()
-                        }
+                        } // HStack
+                        
                         Spacer()
                             .frame(height: geo.size.height * 0.05)
                         
                         HStack {
-                            
                             Spacer()
                             
                             VStack {
@@ -80,67 +80,87 @@ struct MainView: View {
                             }
                             
                             Spacer()
-                        }
+                        } // HStack
+                        
                         Spacer()
-                    }
+                    } // VStack
                     .frame(height: geo.size.height * 0.4)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 15)
-                            .stroke(Color.mint, lineWidth: 1)
+                    .background(
+                        RoundedRectangle(cornerRadius: 25)
+                            .fill(Color.clear)
                     )
-                      
-                    Spacer()
-                        .frame(height: geo.size.height * 0.03)
-                    
-                    VStack {
-                        Spacer()
-                        
-                        HStack {
-                            Spacer()
-                            
-                            Text("가나다라마바사아자차카타파하")
-                                .bold()
-                            
-                            Spacer()
-                        }
-                        .frame(alignment: .center)
-                        
-                        Spacer()
-                    }
-                    .frame(height: geo.size.height * 0.20, alignment: .top)
                     .overlay(
-                        RoundedRectangle(cornerRadius: 15)
-                            .stroke(Color.mint, lineWidth: 1)
+                        RoundedRectangle(cornerRadius: 25)
+                            .stroke(lineWidth: 1)
+                            .foregroundColor(.mint)
                     )
                     
                     Spacer()
-                        .frame(height: geo.size.height * 0.03)
+                        .frame(height: geo.size.height * 0.02)
+                } // LazyStack
+                .padding()
+                .frame(width: geo.size.width, height: geo.size.height * 0.45)
+                
+                Spacer()
+                    .frame(height: geo.size.height * 0.00)
+                
+                VStack {
+                    Spacer()
                     
-                    VStack {
-                        TabView {
-                            ForEach(listsType, id: \.self) { type in
-                                ToDoPreviewView(listRawValue: type.rawValue)
-                                .tabItem {
-                                    Image(systemName: type.rawValue)
-                                }
-                            }
-                        }
-                        .tint(Color.mint)
+                    HStack {
+                        Spacer()
+                        
+                        Text("가나다라마바사아자차카타파하")
+                            .bold()
+                        
+                        Spacer()
                     }
-                    .frame(height: geo.size.height * 0.25, alignment: .top)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 15)
-                            .stroke(Color.mint, lineWidth: 1)
-                    )
+                    .frame(alignment: .center)
                     
                     Spacer()
                 }
+                .frame(height: geo.size.height * 0.20, alignment: .top)
+                .background(
+                    RoundedRectangle(cornerRadius: 25)
+                        .fill(Color.clear)
+                )
+                .overlay(
+                    RoundedRectangle(cornerRadius: 25)
+                        .stroke(lineWidth: 1)
+                        .foregroundColor(.mint)
+                )
                 
-                .padding(20)
-                .frame(height: geo.size.height) // NavigationView
-            }
-        }
-    }
+                Spacer()
+                    .frame(height: geo.size.height * 0.035)
+                
+                VStack {
+                    TabView {
+                        ForEach(listsType, id: \.self) { type in
+                            ToDoPreviewView(listRawValue: type.rawValue)
+                                .tabItem {
+                                    Image(systemName: type.rawValue)
+                                }
+                        }
+                    }
+                    .background(Color.clear)
+                    .tint(Color.mint)
+                }
+                .frame(height: geo.size.height * 0.25, alignment: .top)
+                .background(
+                    RoundedRectangle(cornerRadius: 25)
+                        .fill(Color.clear)
+                )
+                .overlay(
+                    RoundedRectangle(cornerRadius: 25)
+                        .stroke(lineWidth: 1)
+                        .foregroundColor(.mint)
+                )
+            } // NavigationStack
+            .padding()
+            .frame(height: geo.size.height + 80 )
+            .ignoresSafeArea()
+        } // GeometryReader
+    } // body
 }
 
 #Preview {

@@ -8,6 +8,7 @@ target 'MyLists' do
   pod 'Firebase/Core'
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
+  pod 'ExytePopupView'
   # Pods for MyLists
 
 end

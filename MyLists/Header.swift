@@ -11,15 +11,11 @@ import SwiftUI
 struct Header: View {
     var body: some View {
         VStack {
-            Spacer()
             Text("HyunWoo's List")
                 .bold()
-            Spacer()
             Divider()
         }
         .frame(minWidth: 0, maxWidth: .infinity)
-        .frame(height: 30)
-        .background(Rectangle().foregroundColor(.white))
     }
 }
 #Preview {

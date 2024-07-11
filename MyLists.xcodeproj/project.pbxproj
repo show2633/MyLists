@@ -15,6 +15,11 @@
 		8EC9C9422C3AA211004A79A9 /* ToDoPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC9C9412C3AA211004A79A9 /* ToDoPreviewView.swift */; };
 		8EC9C9442C3AA50A004A79A9 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC9C9432C3AA50A004A79A9 /* Header.swift */; };
 		8EC9C9462C3AA532004A79A9 /* CustomNavigationLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC9C9452C3AA532004A79A9 /* CustomNavigationLink.swift */; };
+		8EC9C94B2C3AC7C0004A79A9 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC9C94A2C3AC7C0004A79A9 /* ToDo.swift */; };
+		8EC9C94D2C3AC825004A79A9 /* WorkOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC9C94C2C3AC825004A79A9 /* WorkOut.swift */; };
+		8EC9C94F2C3AC87F004A79A9 /* Daily.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC9C94E2C3AC87F004A79A9 /* Daily.swift */; };
+		8EC9C9512C3AC89B004A79A9 /* Meet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC9C9502C3AC89B004A79A9 /* Meet.swift */; };
+		8EDE0FB32C3B6741004FE9CE /* Signment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDE0FB22C3B6741004FE9CE /* Signment.swift */; };
 		8EE772E12C36CF01001960AA /* TestModelCore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8EE772DF2C36CF01001960AA /* TestModelCore.xcdatamodeld */; };
 		8EE772E32C36D084001960AA /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE772E22C36D084001960AA /* CoreDataManager.swift */; };
 		8EF846B42C34CF0100888773 /* AssignmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF846B32C34CF0100888773 /* AssignmentView.swift */; };
@@ -40,6 +45,11 @@
 		8EC9C9412C3AA211004A79A9 /* ToDoPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoPreviewView.swift; sourceTree = "<group>"; };
 		8EC9C9432C3AA50A004A79A9 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		8EC9C9452C3AA532004A79A9 /* CustomNavigationLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationLink.swift; sourceTree = "<group>"; };
+		8EC9C94A2C3AC7C0004A79A9 /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
+		8EC9C94C2C3AC825004A79A9 /* WorkOut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkOut.swift; sourceTree = "<group>"; };
+		8EC9C94E2C3AC87F004A79A9 /* Daily.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Daily.swift; sourceTree = "<group>"; };
+		8EC9C9502C3AC89B004A79A9 /* Meet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meet.swift; sourceTree = "<group>"; };
+		8EDE0FB22C3B6741004FE9CE /* Signment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Signment.swift; sourceTree = "<group>"; };
 		8EE772E02C36CF01001960AA /* TestModelCore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TestModelCore.xcdatamodel; sourceTree = "<group>"; };
 		8EE772E22C36D084001960AA /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		8EF846B32C34CF0100888773 /* AssignmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentView.swift; sourceTree = "<group>"; };
@@ -98,6 +108,7 @@
 				8EE772E22C36D084001960AA /* CoreDataManager.swift */,
 				8EF846BC2C34D84400888773 /* TestViewModel.swift */,
 				8E15FE372C366AFB00D6864C /* TestModel.swift */,
+				8EC9C9522C3AC8F0004A79A9 /* Model */,
 				8EF846BB2C34CF4B00888773 /* View */,
 				8EAA2BC92C2AF030005F5875 /* Assets.xcassets */,
 				8EAA2BCB2C2AF030005F5875 /* Preview Content */,
@@ -140,6 +151,18 @@
 				8EF846B32C34CF0100888773 /* AssignmentView.swift */,
 			);
 			name = ToDoListView;
+			sourceTree = "<group>";
+		};
+		8EC9C9522C3AC8F0004A79A9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8EC9C94A2C3AC7C0004A79A9 /* ToDo.swift */,
+				8EDE0FB22C3B6741004FE9CE /* Signment.swift */,
+				8EC9C94C2C3AC825004A79A9 /* WorkOut.swift */,
+				8EC9C94E2C3AC87F004A79A9 /* Daily.swift */,
+				8EC9C9502C3AC89B004A79A9 /* Meet.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		8EF846BB2C34CF4B00888773 /* View */ = {
@@ -277,12 +300,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				8EE772E12C36CF01001960AA /* TestModelCore.xcdatamodeld in Sources */,
+				8EC9C94B2C3AC7C0004A79A9 /* ToDo.swift in Sources */,
 				8EAA2BC82C2AF02F005F5875 /* MainView.swift in Sources */,
 				8EF846BA2C34CF3B00888773 /* MeetView.swift in Sources */,
+				8EDE0FB32C3B6741004FE9CE /* Signment.swift in Sources */,
 				8EF846B42C34CF0100888773 /* AssignmentView.swift in Sources */,
 				8EC9C9442C3AA50A004A79A9 /* Header.swift in Sources */,
 				8E15FE382C366AFB00D6864C /* TestModel.swift in Sources */,
 				8EF846B62C34CF1900888773 /* WorkOutView.swift in Sources */,
+				8EC9C9512C3AC89B004A79A9 /* Meet.swift in Sources */,
+				8EC9C94D2C3AC825004A79A9 /* WorkOut.swift in Sources */,
+				8EC9C94F2C3AC87F004A79A9 /* Daily.swift in Sources */,
 				8EF846B82C34CF2900888773 /* DailyView.swift in Sources */,
 				8EF846BD2C34D84400888773 /* TestViewModel.swift in Sources */,
 				8EC9C9462C3AA532004A79A9 /* CustomNavigationLink.swift in Sources */,
