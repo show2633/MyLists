@@ -15,7 +15,6 @@ enum ListsType: String {
 }
 
 struct MainView: View {
-    var tc = TestViewModel()
     var listsType: [ListsType] = [
         ListsType.signature,
         ListsType.workOut,

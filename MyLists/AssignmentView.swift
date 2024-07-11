@@ -10,6 +10,7 @@ import ExytePopupView
 
 private struct FloatingView: View {
     @Binding var isPresentedFloating: Bool
+    @ObservedObject var assignmentViewModel: AssignmentViewModel
     @State private var content: String = ""
     @State private var date: Date = Date()
     
@@ -20,6 +21,7 @@ private struct FloatingView: View {
                     .font(.system(size: 30))
                     .frame(alignment: .leading)
                     .bold()
+                
                 Divider()
                     .frame(height: 1)
                     .frame(width: geo.size.width)
@@ -60,6 +62,7 @@ private struct FloatingView: View {
                         Image(systemName: "doc")
                             .resizable()
                             .frame(width: geo.size.width * 0.09, height: geo.size.height * 0.05)
+                        
                         Text("Content")
                     }
                     .frame(width: geo.size.width, alignment: .leading)
@@ -90,8 +93,8 @@ private struct FloatingView: View {
                     }
                     
                     Button {
-                        // AssignmentViewModel의 Create관련 함수 불러와서 저장
-                        // AssignmentViewModel의 Read관련 함수 불러와서 불러오기
+                        assignmentViewModel.createData(date: dateToString(date: date), content: content)
+                        assignmentViewModel.readData()
                         isPresentedFloating = false
                     } label: {
                         Image(systemName: "pencil")
@@ -119,11 +122,20 @@ private struct FloatingView: View {
         }
         Spacer()
     }
+    
+    func dateToString(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let date = Date()
+        let dateString = dateFormatter.string(from: date)
+        
+        return dateString
+    }
 }
 
 struct AssignmentView: View {
+    @ObservedObject var assignmentViewModel: AssignmentViewModel = AssignmentViewModel()
     @State private var isPresentFloating = false
-    @State private var checkedTodoList = false
     
     var body: some View {
         ZStack {
@@ -141,109 +153,66 @@ struct AssignmentView: View {
                     
                     VStack{
                         List {
-                            HStack {
-                                Toggle(isOn: $checkedTodoList) {
-                                    // AssignmentViewModel의 update 함수 불러오기
-                                }
-                                .frame(width: geo.size.width * 0.15, height: 100, alignment: .leading)
-                                
-                                Spacer()
-                                
-                                if checkedTodoList {
-                                    Text("2024-07-15 20:02:12 \n할 일 내용")
-                                        .frame(width: geo.size.width * 0.68, alignment: .leading)
-                                        .background(Color.clear)
-                                        .swipeActions(edge: .trailing) {
-                                            Button(role: .destructive) {
-                                                // AssignmentViewModel Delete 함수 불러오기
-                                            } label: {
-                                                Label("Delete", systemImage: "trash")
-                                            }
+                            ForEach($assignmentViewModel.signments) { $assignment in
+                                VStack {
+                                    Spacer()
+                                    
+                                    HStack{
+                                        Toggle(isOn: $assignment.checkedTodoList) {
+                                            
                                         }
-                                        .strikethrough(color: .red)
-                                } else {
-                                    Text("2024-07-15 20:02:12 \n할 일 내용")
-                                        .background(Color.clear)
-                                        .swipeActions(edge: .trailing) {
-                                            Button(role: .destructive) {
-                                                // AssignmentViewModel Delete 함수 불러오기
-                                            } label: {
-                                                Label("Delete", systemImage: "trash")
-                                            }
+                                        .onChange(of: assignment.checkedTodoList) { changedValue in
+                                            assignmentViewModel.updateData(checkedTodoList: changedValue, date: assignment.date, content: assignment.content)
                                         }
-                                        .frame(width: geo.size.width * 0.68, alignment: .leading)
+                                        .frame(width: geo.size.width * 0.15, height: 100, alignment: .leading)
+                                        
+                                        Spacer()
+                                        
+                                        if assignment.checkedTodoList {
+                                            Text("\(assignment.date)\n\(assignment.content)")
+                                                .frame(width: geo.size.width * 0.68, alignment: .leading)
+                                                .background(Color.clear)
+                                                .strikethrough(color: .red)
+                                        } else {
+                                            Text("\(assignment.date)\n\(assignment.content)")
+                                                .frame(width: geo.size.width * 0.68, alignment: .leading)
+                                                .background(Color.clear)
+                                        }
+                                    }
+                                    .swipeActions {
+                                        Button(role: .destructive) {
+                                            assignmentViewModel.deleteData(content: assignment.content)
+                                        } label: {
+                                            Label("Delete", systemImage: "trash")
+                                        }
+                                    }
                                 }
                             }
-                        }.listStyle(.plain)
-                            
-                    }
-                    .frame(width: geo.size.width, height: geo.size.height * 0.90, alignment: .top)
-                    .background(
-                        RoundedRectangle(cornerRadius: 25)
-                            .fill(Color.clear)
-                    )
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 25)
-                            .stroke(lineWidth: 1)
-                            .foregroundColor(.mint)
-                    )
+                        }
+                    }.listStyle(.plain)
                 }
-                .onAppear() {
-                    
-                    // AssignmentViewModel의 Read관련 함수 불러와서 불러오기
-                }
-                .sheet(isPresented: $isPresentFloating, onDismiss: {
-                    
-                }) {
-                    FloatingView(isPresentedFloating: $isPresentFloating)
-                }
+                .frame(width: geo.size.width, height: geo.size.height * 0.90, alignment: .top)
+                .background(
+                    RoundedRectangle(cornerRadius: 25)
+                        .fill(Color.clear)
+                )
+                .overlay(
+                    RoundedRectangle(cornerRadius: 25)
+                        .stroke(lineWidth: 1)
+                        .foregroundColor(.mint)
+                )
             }
-            .navigationTitle("ASSIGNMENT")
+            .onAppear() {
+                assignmentViewModel.readData()
+                // AssignmentViewModel의 Read관련 함수 불러와서 불러오기
+            }
+            .sheet(isPresented: $isPresentFloating, onDismiss: {
+            }) {
+                FloatingView(isPresentedFloating: $isPresentFloating, assignmentViewModel: assignmentViewModel)
+            }
         }
-        
+        .navigationTitle("ASSIGNMENT")
     }
-    
-//    @ObservedObject var tv = TestViewModel()
-//    var coreDataManager = CoreDataManager()
-//    
-//    var body: some View {
-//        VStack{
-//            List(tv.testModels) { tm in
-//                HStack {
-//                    Text("\(tm.content)")
-//                    Text("\(tm.time)")
-//                }
-//                .swipeActions(edge: .leading, allowsFullSwipe: true) {
-//                    Button {
-//                         } label: {
-//                             Label("Delete", systemImage: "trash.circle")
-//                         }
-//                             .tint(.red)
-//                }
-//            }
-//           
-//        }
-//        .navigationTitle("test")
-//        .onAppear() {
-//            tv.readData()
-//            
-//            var testModel: TestModel = TestModel()
-//            testModel.content = "TestContent"
-//            testModel.time = "TestTime"
-//            coreDataManager.insertTestModel(testModel)
-//        }
-//        
-//        VStack {
-//            Button(action: {
-//                let testModels = coreDataManager.getModelCore()
-//                for testModel in testModels {
-//                    print("Content: \(testModel.content), Time: \(testModel.time)")
-//                }
-//            }) {
-//                Text("Save and Fetch User")
-//            }
-//        }
-//    }
 }
 
 #Preview {

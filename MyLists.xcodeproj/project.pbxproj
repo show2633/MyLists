@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8E15FE382C366AFB00D6864C /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E15FE372C366AFB00D6864C /* TestModel.swift */; };
 		8EAA2BC62C2AF02F005F5875 /* MyListsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAA2BC52C2AF02F005F5875 /* MyListsApp.swift */; };
 		8EAA2BC82C2AF02F005F5875 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAA2BC72C2AF02F005F5875 /* MainView.swift */; };
 		8EAA2BCA2C2AF030005F5875 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EAA2BC92C2AF030005F5875 /* Assets.xcassets */; };
 		8EAA2BCD2C2AF030005F5875 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EAA2BCC2C2AF030005F5875 /* Preview Assets.xcassets */; };
+		8EC5D2D92C3F75C300520067 /* TestModelCore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8EC5D2D72C3F75C300520067 /* TestModelCore.xcdatamodeld */; };
+		8EC5D2DB2C3F767300520067 /* AssignmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC5D2DA2C3F767300520067 /* AssignmentViewModel.swift */; };
 		8EC9C9422C3AA211004A79A9 /* ToDoPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC9C9412C3AA211004A79A9 /* ToDoPreviewView.swift */; };
 		8EC9C9442C3AA50A004A79A9 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC9C9432C3AA50A004A79A9 /* Header.swift */; };
 		8EC9C9462C3AA532004A79A9 /* CustomNavigationLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC9C9452C3AA532004A79A9 /* CustomNavigationLink.swift */; };
@@ -20,13 +21,11 @@
 		8EC9C94F2C3AC87F004A79A9 /* Daily.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC9C94E2C3AC87F004A79A9 /* Daily.swift */; };
 		8EC9C9512C3AC89B004A79A9 /* Meet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC9C9502C3AC89B004A79A9 /* Meet.swift */; };
 		8EDE0FB32C3B6741004FE9CE /* Signment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDE0FB22C3B6741004FE9CE /* Signment.swift */; };
-		8EE772E12C36CF01001960AA /* TestModelCore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8EE772DF2C36CF01001960AA /* TestModelCore.xcdatamodeld */; };
 		8EE772E32C36D084001960AA /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE772E22C36D084001960AA /* CoreDataManager.swift */; };
 		8EF846B42C34CF0100888773 /* AssignmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF846B32C34CF0100888773 /* AssignmentView.swift */; };
 		8EF846B62C34CF1900888773 /* WorkOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF846B52C34CF1900888773 /* WorkOutView.swift */; };
 		8EF846B82C34CF2900888773 /* DailyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF846B72C34CF2900888773 /* DailyView.swift */; };
 		8EF846BA2C34CF3B00888773 /* MeetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF846B92C34CF3B00888773 /* MeetView.swift */; };
-		8EF846BD2C34D84400888773 /* TestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF846BC2C34D84400888773 /* TestViewModel.swift */; };
 		8EF846BF2C34DCF100888773 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8EF846BE2C34DCF100888773 /* GoogleService-Info.plist */; };
 		F3E6D6662392E76D5CA7D6D0 /* Pods_MyLists.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A61A28192F9ADAA06354BFD /* Pods_MyLists.framework */; };
 /* End PBXBuildFile section */
@@ -36,12 +35,13 @@
 		2B8EF98CC8FDAC61D177BDA1 /* Pods-MyLists.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyLists.debug.xcconfig"; path = "Target Support Files/Pods-MyLists/Pods-MyLists.debug.xcconfig"; sourceTree = "<group>"; };
 		5974EA0614ED021C3F82F542 /* Pods-MyLists.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyLists.release.xcconfig"; path = "Target Support Files/Pods-MyLists/Pods-MyLists.release.xcconfig"; sourceTree = "<group>"; };
 		8E0BF6392C36358800A59E98 /* FirebaseFirestore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseFirestore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8E15FE372C366AFB00D6864C /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
 		8EAA2BC22C2AF02F005F5875 /* MyLists.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyLists.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EAA2BC52C2AF02F005F5875 /* MyListsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListsApp.swift; sourceTree = "<group>"; };
 		8EAA2BC72C2AF02F005F5875 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		8EAA2BC92C2AF030005F5875 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8EAA2BCC2C2AF030005F5875 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8EC5D2D82C3F75C300520067 /* TestModelCore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TestModelCore.xcdatamodel; sourceTree = "<group>"; };
+		8EC5D2DA2C3F767300520067 /* AssignmentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentViewModel.swift; sourceTree = "<group>"; };
 		8EC9C9412C3AA211004A79A9 /* ToDoPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoPreviewView.swift; sourceTree = "<group>"; };
 		8EC9C9432C3AA50A004A79A9 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		8EC9C9452C3AA532004A79A9 /* CustomNavigationLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationLink.swift; sourceTree = "<group>"; };
@@ -50,13 +50,11 @@
 		8EC9C94E2C3AC87F004A79A9 /* Daily.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Daily.swift; sourceTree = "<group>"; };
 		8EC9C9502C3AC89B004A79A9 /* Meet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meet.swift; sourceTree = "<group>"; };
 		8EDE0FB22C3B6741004FE9CE /* Signment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Signment.swift; sourceTree = "<group>"; };
-		8EE772E02C36CF01001960AA /* TestModelCore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TestModelCore.xcdatamodel; sourceTree = "<group>"; };
 		8EE772E22C36D084001960AA /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		8EF846B32C34CF0100888773 /* AssignmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentView.swift; sourceTree = "<group>"; };
 		8EF846B52C34CF1900888773 /* WorkOutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkOutView.swift; sourceTree = "<group>"; };
 		8EF846B72C34CF2900888773 /* DailyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyView.swift; sourceTree = "<group>"; };
 		8EF846B92C34CF3B00888773 /* MeetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetView.swift; sourceTree = "<group>"; };
-		8EF846BC2C34D84400888773 /* TestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewModel.swift; sourceTree = "<group>"; };
 		8EF846BE2C34DCF100888773 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,11 +101,10 @@
 			isa = PBXGroup;
 			children = (
 				8EAA2BC52C2AF02F005F5875 /* MyListsApp.swift */,
-				8EE772DF2C36CF01001960AA /* TestModelCore.xcdatamodeld */,
+				8EC5D2D72C3F75C300520067 /* TestModelCore.xcdatamodeld */,
 				8EF846BE2C34DCF100888773 /* GoogleService-Info.plist */,
 				8EE772E22C36D084001960AA /* CoreDataManager.swift */,
-				8EF846BC2C34D84400888773 /* TestViewModel.swift */,
-				8E15FE372C366AFB00D6864C /* TestModel.swift */,
+				8EC5D2DC2C3FC80500520067 /* ViewModel */,
 				8EC9C9522C3AC8F0004A79A9 /* Model */,
 				8EF846BB2C34CF4B00888773 /* View */,
 				8EAA2BC92C2AF030005F5875 /* Assets.xcassets */,
@@ -122,6 +119,14 @@
 				8EAA2BCC2C2AF030005F5875 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8EC5D2DC2C3FC80500520067 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8EC5D2DA2C3F767300520067 /* AssignmentViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		8EC9C9472C3AA56A004A79A9 /* CustomView */ = {
@@ -299,24 +304,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8EE772E12C36CF01001960AA /* TestModelCore.xcdatamodeld in Sources */,
 				8EC9C94B2C3AC7C0004A79A9 /* ToDo.swift in Sources */,
 				8EAA2BC82C2AF02F005F5875 /* MainView.swift in Sources */,
 				8EF846BA2C34CF3B00888773 /* MeetView.swift in Sources */,
 				8EDE0FB32C3B6741004FE9CE /* Signment.swift in Sources */,
 				8EF846B42C34CF0100888773 /* AssignmentView.swift in Sources */,
 				8EC9C9442C3AA50A004A79A9 /* Header.swift in Sources */,
-				8E15FE382C366AFB00D6864C /* TestModel.swift in Sources */,
+				8EC5D2D92C3F75C300520067 /* TestModelCore.xcdatamodeld in Sources */,
 				8EF846B62C34CF1900888773 /* WorkOutView.swift in Sources */,
 				8EC9C9512C3AC89B004A79A9 /* Meet.swift in Sources */,
 				8EC9C94D2C3AC825004A79A9 /* WorkOut.swift in Sources */,
 				8EC9C94F2C3AC87F004A79A9 /* Daily.swift in Sources */,
 				8EF846B82C34CF2900888773 /* DailyView.swift in Sources */,
-				8EF846BD2C34D84400888773 /* TestViewModel.swift in Sources */,
 				8EC9C9462C3AA532004A79A9 /* CustomNavigationLink.swift in Sources */,
 				8EE772E32C36D084001960AA /* CoreDataManager.swift in Sources */,
 				8EAA2BC62C2AF02F005F5875 /* MyListsApp.swift in Sources */,
 				8EC9C9422C3AA211004A79A9 /* ToDoPreviewView.swift in Sources */,
+				8EC5D2DB2C3F767300520067 /* AssignmentViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,12 +528,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		8EE772DF2C36CF01001960AA /* TestModelCore.xcdatamodeld */ = {
+		8EC5D2D72C3F75C300520067 /* TestModelCore.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				8EE772E02C36CF01001960AA /* TestModelCore.xcdatamodel */,
+				8EC5D2D82C3F75C300520067 /* TestModelCore.xcdatamodel */,
 			);
-			currentVersion = 8EE772E02C36CF01001960AA /* TestModelCore.xcdatamodel */;
+			currentVersion = 8EC5D2D82C3F75C300520067 /* TestModelCore.xcdatamodel */;
 			name = TestModelCore.xcdatamodeld;
 			path = /Users/hyunwooshin/Desktop/Project/My/Study/MyLists/MyLists/TestModelCore.xcdatamodeld;
 			sourceTree = "<group>";
