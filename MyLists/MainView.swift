@@ -7,160 +7,188 @@
 
 import SwiftUI
 
-enum ListsType: String {
-    case signature = "signature.ar"
-    case workOut =  "dumbbell.fill"
-    case daily = "cup.and.saucer.fill"
-    case meet = "figure.2"
-}
-
 struct MainView: View {
-    var listsType: [ListsType] = [
-        ListsType.signature,
-        ListsType.workOut,
-        ListsType.daily,
-        ListsType.meet
-    ]
+    @ObservedObject var mainViewModel: MainViewModel = MainViewModel()
+    @State private var isChecked = false
+    @State var sheetModalForToDo = false
+    @State var sheetModalForGroup = false
     
     var body: some View {
-        GeometryReader { geo in
-            NavigationStack {
-                Header()
+        ZStack {
+            VStack {
+                LazyVStack {
+                    LinearCalendar()
+                }
+                
+                Divider()
                 
                 LazyVStack {
-                    VStack {
-                        Spacer()
-                            .frame(height: geo.size.height * 0.05)
-                        
-                        HStack {
-                            Spacer()
-                            
-                            VStack{
-                                CustomNavigationLink(imageName: ListsType.signature.rawValue, viewName: "assignment", width: geo.size.width * 0.2, height: geo.size.height * 0.1) {}
-                                Text("ASSIGNMENT")
-                                    .bold()
-                                    .frame(width: geo.size.width * 0.3)
-                            }
-                            
-                            Spacer()
-                                .frame(width: geo.size.width * 0.15)
-                            
-                            VStack{
-                                CustomNavigationLink(imageName: ListsType.workOut.rawValue, viewName: "workOut", width: geo.size.width * 0.2, height: geo.size.height * 0.1) {}
-                                Text("WORK OUT")
-                                    .bold()
-                                    .frame(width: geo.size.width * 0.3)
-                            }
-                            
-                            Spacer()
-                        } // HStack
-                        
-                        Spacer()
-                            .frame(height: geo.size.height * 0.05)
-                        
-                        HStack {
-                            Spacer()
-                            
-                            VStack {
-                                CustomNavigationLink(imageName: ListsType.daily.rawValue, viewName: "daily", width: geo.size.width * 0.2, height: geo.size.height * 0.1) {}
-                                Text("DAILY")
-                                    .bold()
-                                    .frame(width: geo.size.width * 0.3)
-                            }
-                            
-                            Spacer()
-                                .frame(width: geo.size.width * 0.15)
-                            
-                            VStack {
-                                CustomNavigationLink(imageName: ListsType.meet.rawValue, viewName: "meet", width: geo.size.width * 0.2, height: geo.size.height * 0.1) {}
-                                Text("MEET")
-                                    .bold()
-                                    .frame(width: geo.size.width * 0.3)
-                            }
-                            
-                            Spacer()
-                        } // HStack
-                        
-                        Spacer()
-                    } // VStack
-                    .frame(height: geo.size.height * 0.4)
-                    .background(
-                        RoundedRectangle(cornerRadius: 25)
-                            .fill(Color.clear)
-                    )
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 25)
-                            .stroke(lineWidth: 1)
-                            .foregroundColor(.mint)
-                    )
-                    
-                    Spacer()
-                        .frame(height: geo.size.height * 0.02)
-                } // LazyStack
-                .padding()
-                .frame(width: geo.size.width, height: geo.size.height * 0.45)
-                
-                Spacer()
-                    .frame(height: geo.size.height * 0.00)
-                
-                VStack {
-                    Spacer()
-                    
-                    HStack {
-                        Spacer()
-                        
-                        Text("가나다라마바사아자차카타파하")
-                            .bold()
-                        
-                        Spacer()
+                    List {
+                        setCompletedToDoList()
+                        setDecompletedToDoList()
                     }
-                    .frame(alignment: .center)
-                    
-                    Spacer()
+                    .frame(height: 580)
+                    .listStyle(.plain)
                 }
-                .frame(height: geo.size.height * 0.20, alignment: .top)
-                .background(
-                    RoundedRectangle(cornerRadius: 25)
-                        .fill(Color.clear)
-                )
-                .overlay(
-                    RoundedRectangle(cornerRadius: 25)
-                        .stroke(lineWidth: 1)
-                        .foregroundColor(.mint)
-                )
                 
                 Spacer()
-                    .frame(height: geo.size.height * 0.035)
+            }
+            VStack {
+                Spacer()
+                HStack {
+                    Spacer()
+                    setFloatingActionButtons()
+                }
+            }
+        }
+    }
+    
+//MARK: - ViewBuilder
+    
+    @ViewBuilder
+    func setSectionHeaderWithCircle(title: String, circleColor: Color) -> some View {
+        HStack {
+            Circle()
+                .fill(circleColor)
+                .frame(width: 15, height: 15)
+            Text(title)
+        }
+    }
+    
+    @ViewBuilder
+    func setToDo() -> some View {
+        RoundedRectangle(cornerRadius: 15)
+            .stroke(Color.cyan, lineWidth: 3).opacity(0.7)
+        VStack {
+            HStack {
+                Toggle("", isOn: $isChecked)
+                    .toggleStyle(CheckboxToggleStyle(style: .circle))
+                    .foregroundColor(.red)
+                    .bold()
+                    .padding(3)
                 
-                VStack {
-                    TabView {
-                        ForEach(listsType, id: \.self) { type in
-                            ToDoPreviewView(listRawValue: type.rawValue)
-                                .tabItem {
-                                    Image(systemName: type.rawValue)
-                                }
+                Spacer()
+            }
+            Text("오늘의 할 일")
+                .font(Font.custom("HS새마을체", size: 18))
+                .foregroundColor(.black)
+            Text("17:00:00")
+                .font(Font.custom("HS새마을체", size: 13))
+                .foregroundColor(.black)
+            ScrollView {
+                Text("네 이것저것이 있네요")
+                    .font(Font.custom("HS새마을체", size: 15))
+                    .foregroundColor(.black)
+                    .padding()
+            }
+            
+            Spacer()
+        }
+    }
+    
+    @ViewBuilder
+    func setTodoArray() -> some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            LazyHStack {
+                ForEach(TodoGroup.allCases) { g in
+                    RoundedRectangle(cornerRadius: 15)
+                        .frame(width:150 , height: 150)
+                        .overlay {
+                            setToDo()
                         }
-                    }
-                    .background(Color.clear)
-                    .tint(Color.mint)
+                        .foregroundColor(.clear)
+                        .background(.clear)
                 }
-                .frame(height: geo.size.height * 0.25, alignment: .top)
-                .background(
-                    RoundedRectangle(cornerRadius: 25)
-                        .fill(Color.clear)
-                )
-                .overlay(
-                    RoundedRectangle(cornerRadius: 25)
-                        .stroke(lineWidth: 1)
-                        .foregroundColor(.mint)
-                )
-            } // NavigationStack
-            .padding()
-            .frame(height: geo.size.height + 80 )
-            .ignoresSafeArea()
-        } // GeometryReader
-    } // body
+                
+            }
+        }
+    }
+    
+    @ViewBuilder
+    func setCompletedToDoList() -> some View {
+        Section(header: setSectionHeaderWithCircle(title: "완료", circleColor: Color.cyan)
+            .font(Font.custom("HS새마을체", size: 19))
+            .foregroundColor(.cyan)) {
+                setTodoArray()
+            }
+    }
+    
+    @ViewBuilder
+    func setDecompletedToDoList() -> some View {
+        ForEach(TodoGroup.allCases) { group in
+            Section(header: setSectionHeaderWithCircle(title: group.rawValue, circleColor: Color.black)
+                .font(Font.custom("HS새마을체", size: 20))
+                .foregroundColor(.black)) {
+                    setTodoArray()
+                }
+        }
+    }
+    
+    @ViewBuilder
+    func setFloatingActionButtons() -> some View {
+        VStack {
+            FloatingActionButton(imageName: "rectangle.3.group") {
+                sheetModalForGroup = true
+            }
+            .sheet(isPresented: $sheetModalForGroup, content: {
+                FloatingViewForGroup(sheetModalForGroup: $sheetModalForGroup)
+                    .presentationDetents([.medium])
+            })
+            FloatingActionButton(imageName: "plus") {
+                sheetModalForToDo = true
+            }
+            .sheet(isPresented: $sheetModalForToDo, content: {
+                FloatingViewForToDo(sheetModalForToDo: $sheetModalForToDo)
+                    .presentationDetents([.medium])
+            })
+        }
+        .padding()
+    }
 }
+
+// MARK: - ETC
+
+enum TodoGroup: String, Identifiable, CaseIterable {
+    case 숙제
+    case 미팅
+    case 운동
+    
+    var id: String { self.rawValue }
+}
+
+// 토글 체크박스 Style
+struct CheckboxToggleStyle: ToggleStyle {
+    @Environment(\.isEnabled) var isEnabled
+    let style: Style
+    
+    func makeBody(configuration: Configuration) -> some View {
+        Button(action: {
+            configuration.isOn.toggle()
+        }, label: {
+            HStack {
+                Image(systemName: configuration.isOn ? "checkmark.\(style.sfSymbolName).fill" : style.sfSymbolName)
+                    .imageScale(.large)
+                configuration.label
+            }
+        })
+        .buttonStyle(PlainButtonStyle())
+        .disabled(!isEnabled)
+    }
+    
+    enum Style {
+        case square, circle
+        
+        var sfSymbolName: String {
+            switch self {
+            case .square:
+                return "square"
+            case .circle:
+                return "circle"
+            }
+        }
+    }
+}
+
 
 #Preview {
     MainView()
