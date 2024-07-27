@@ -13,13 +13,18 @@
 		8EAA2BC82C2AF02F005F5875 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAA2BC72C2AF02F005F5875 /* MainView.swift */; };
 		8EAA2BCA2C2AF030005F5875 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EAA2BC92C2AF030005F5875 /* Assets.xcassets */; };
 		8EAA2BCD2C2AF030005F5875 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EAA2BCC2C2AF030005F5875 /* Preview Assets.xcassets */; };
+		8EC122022C55507C0007F30E /* ToDoEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC122012C55507C0007F30E /* ToDoEnums.swift */; };
 		8EC23FA72C4FB21C00AC13EB /* LinearCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC23FA62C4FB21C00AC13EB /* LinearCalendar.swift */; };
 		8EC23FA92C4FB48100AC13EB /* FloatingViewForToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC23FA82C4FB48100AC13EB /* FloatingViewForToDo.swift */; };
-		8EC23FAB2C4FB4A200AC13EB /* FloatingViewForGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC23FAA2C4FB4A200AC13EB /* FloatingViewForGroup.swift */; };
+		8EC23FAB2C4FB4A200AC13EB /* FloatingViewForGroupCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC23FAA2C4FB4A200AC13EB /* FloatingViewForGroupCreate.swift */; };
 		8EC23FAD2C4FB51100AC13EB /* FloatingActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC23FAC2C4FB51100AC13EB /* FloatingActionButton.swift */; };
 		8EC23FB12C4FB83B00AC13EB /* HS새마을체.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EC23FB02C4FB83B00AC13EB /* HS새마을체.ttf */; };
-		8EC23FB42C4FC4B400AC13EB /* SetSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC23FB32C4FC4B400AC13EB /* SetSectionHeaderView.swift */; };
+		8EC23FB42C4FC4B400AC13EB /* SetSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC23FB32C4FC4B400AC13EB /* SetSectionHeader.swift */; };
+		8EC23FB62C4FF70E00AC13EB /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC23FB52C4FF70E00AC13EB /* Group.swift */; };
+		8EC23FB92C4FF89D00AC13EB /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC23FB82C4FF89D00AC13EB /* Extension.swift */; };
 		8EC5D2DB2C3F767300520067 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC5D2DA2C3F767300520067 /* MainViewModel.swift */; };
+		8EC8EE8A2C52533A00FBC030 /* FloatingViewForGroupControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC8EE892C52533A00FBC030 /* FloatingViewForGroupControl.swift */; };
+		8EC8EE8C2C525BD700FBC030 /* SetColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC8EE8B2C525BD700FBC030 /* SetColorPicker.swift */; };
 		8EC9C94B2C3AC7C0004A79A9 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC9C94A2C3AC7C0004A79A9 /* ToDo.swift */; };
 		8EF846BF2C34DCF100888773 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8EF846BE2C34DCF100888773 /* GoogleService-Info.plist */; };
 		F3E6D6662392E76D5CA7D6D0 /* Pods_MyLists.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A61A28192F9ADAA06354BFD /* Pods_MyLists.framework */; };
@@ -37,14 +42,19 @@
 		8EAA2BC72C2AF02F005F5875 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		8EAA2BC92C2AF030005F5875 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8EAA2BCC2C2AF030005F5875 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8EC122012C55507C0007F30E /* ToDoEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoEnums.swift; sourceTree = "<group>"; };
 		8EC23FA62C4FB21C00AC13EB /* LinearCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearCalendar.swift; sourceTree = "<group>"; };
 		8EC23FA82C4FB48100AC13EB /* FloatingViewForToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingViewForToDo.swift; sourceTree = "<group>"; };
-		8EC23FAA2C4FB4A200AC13EB /* FloatingViewForGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingViewForGroup.swift; sourceTree = "<group>"; };
+		8EC23FAA2C4FB4A200AC13EB /* FloatingViewForGroupCreate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingViewForGroupCreate.swift; sourceTree = "<group>"; };
 		8EC23FAC2C4FB51100AC13EB /* FloatingActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingActionButton.swift; sourceTree = "<group>"; };
 		8EC23FAE2C4FB80500AC13EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8EC23FB02C4FB83B00AC13EB /* HS새마을체.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HS새마을체.ttf"; sourceTree = "<group>"; };
-		8EC23FB32C4FC4B400AC13EB /* SetSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetSectionHeaderView.swift; sourceTree = "<group>"; };
+		8EC23FB32C4FC4B400AC13EB /* SetSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetSectionHeader.swift; sourceTree = "<group>"; };
+		8EC23FB52C4FF70E00AC13EB /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		8EC23FB82C4FF89D00AC13EB /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		8EC5D2DA2C3F767300520067 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		8EC8EE892C52533A00FBC030 /* FloatingViewForGroupControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingViewForGroupControl.swift; sourceTree = "<group>"; };
+		8EC8EE8B2C525BD700FBC030 /* SetColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetColorPicker.swift; sourceTree = "<group>"; };
 		8EC9C94A2C3AC7C0004A79A9 /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
 		8EF846BE2C34DCF100888773 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,6 +121,8 @@
 				8EAA2BC52C2AF02F005F5875 /* MyListsApp.swift */,
 				8EC23FAE2C4FB80500AC13EB /* Info.plist */,
 				8EF846BE2C34DCF100888773 /* GoogleService-Info.plist */,
+				8EC122032C5550850007F30E /* Enum */,
+				8EC23FB72C4FF88000AC13EB /* Extension */,
 				8E2468232C4A978A00E5B271 /* Util */,
 				8E2468342C4A9E2F00E5B271 /* Service */,
 				8EC5D2DC2C3FC80500520067 /* ViewModel */,
@@ -130,12 +142,29 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		8EC122032C5550850007F30E /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				8EC122012C55507C0007F30E /* ToDoEnums.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
 		8EC23FB22C4FC48400AC13EB /* SubViewForSection */ = {
 			isa = PBXGroup;
 			children = (
-				8EC23FB32C4FC4B400AC13EB /* SetSectionHeaderView.swift */,
+				8EC23FB32C4FC4B400AC13EB /* SetSectionHeader.swift */,
+				8EC8EE8B2C525BD700FBC030 /* SetColorPicker.swift */,
 			);
 			name = SubViewForSection;
+			sourceTree = "<group>";
+		};
+		8EC23FB72C4FF88000AC13EB /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				8EC23FB82C4FF89D00AC13EB /* Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		8EC5D2DC2C3FC80500520067 /* ViewModel */ = {
@@ -152,7 +181,8 @@
 				8EC23FA62C4FB21C00AC13EB /* LinearCalendar.swift */,
 				8EC23FAC2C4FB51100AC13EB /* FloatingActionButton.swift */,
 				8EC23FA82C4FB48100AC13EB /* FloatingViewForToDo.swift */,
-				8EC23FAA2C4FB4A200AC13EB /* FloatingViewForGroup.swift */,
+				8EC23FAA2C4FB4A200AC13EB /* FloatingViewForGroupCreate.swift */,
+				8EC8EE892C52533A00FBC030 /* FloatingViewForGroupControl.swift */,
 			);
 			name = MainViewSubView;
 			sourceTree = "<group>";
@@ -161,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				8EC9C94A2C3AC7C0004A79A9 /* ToDo.swift */,
+				8EC23FB52C4FF70E00AC13EB /* Group.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -303,13 +334,18 @@
 				8EC9C94B2C3AC7C0004A79A9 /* ToDo.swift in Sources */,
 				8EAA2BC82C2AF02F005F5875 /* MainView.swift in Sources */,
 				8E2468332C4A9E2700E5B271 /* DataService.swift in Sources */,
-				8EC23FB42C4FC4B400AC13EB /* SetSectionHeaderView.swift in Sources */,
+				8EC23FB62C4FF70E00AC13EB /* Group.swift in Sources */,
+				8EC23FB42C4FC4B400AC13EB /* SetSectionHeader.swift in Sources */,
 				8E2468252C4A979D00E5B271 /* Utils.swift in Sources */,
 				8EC23FA72C4FB21C00AC13EB /* LinearCalendar.swift in Sources */,
 				8EC23FAD2C4FB51100AC13EB /* FloatingActionButton.swift in Sources */,
+				8EC122022C55507C0007F30E /* ToDoEnums.swift in Sources */,
 				8EAA2BC62C2AF02F005F5875 /* MyListsApp.swift in Sources */,
-				8EC23FAB2C4FB4A200AC13EB /* FloatingViewForGroup.swift in Sources */,
+				8EC23FB92C4FF89D00AC13EB /* Extension.swift in Sources */,
+				8EC23FAB2C4FB4A200AC13EB /* FloatingViewForGroupCreate.swift in Sources */,
+				8EC8EE8C2C525BD700FBC030 /* SetColorPicker.swift in Sources */,
 				8EC23FA92C4FB48100AC13EB /* FloatingViewForToDo.swift in Sources */,
+				8EC8EE8A2C52533A00FBC030 /* FloatingViewForGroupControl.swift in Sources */,
 				8EC5D2DB2C3F767300520067 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

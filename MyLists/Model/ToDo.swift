@@ -7,13 +7,14 @@
 
 import Foundation
 
-class ToDo: Identifiable, Codable {
+struct ToDo: Identifiable, Codable {
     var id: UUID
     var checkedTodoList: Bool
     var group: String
     var date: String
     var time: String
-    var content: String
+    var content: String?
+    var isCompleted: Bool?
     
     enum CodingKeys: String, CodingKey {
         case checkedTodoList
@@ -26,13 +27,14 @@ class ToDo: Identifiable, Codable {
     init(checkedTodoList: Bool, group: String, date: String, time: String, content: String) {
         self.id = UUID()
         self.checkedTodoList = checkedTodoList
-        self.group =  group
+        self.group = group
         self.date = date
         self.time = time
         self.content = content
+        self.isCompleted = checkedTodoList
     }
     
-    required init(from decoder: Decoder) throws {
+    init(from decoder: Decoder) throws {
         self.id = UUID()
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.checkedTodoList = try container.decode(Bool.self, forKey: .checkedTodoList)
@@ -40,6 +42,7 @@ class ToDo: Identifiable, Codable {
         self.date = try container.decode(String.self, forKey: .date)
         self.time = try container.decode(String.self, forKey: .time)
         self.content = try container.decode(String.self, forKey: .content)
+        self.isCompleted = checkedTodoList
     }
     
     func encode(to encoder: Encoder) throws {
@@ -49,5 +52,9 @@ class ToDo: Identifiable, Codable {
         try container.encode(date, forKey: .date)
         try container.encode(time, forKey: .time)
         try container.encode(content, forKey: .content)
+    }
+    
+    mutating func changeIsCompleted(checkedValue: Bool) {
+        isCompleted = checkedValue
     }
 }

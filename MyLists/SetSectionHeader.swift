@@ -7,18 +7,18 @@
 
 import SwiftUI
 
-struct SetSectionHeaderView: View {
+struct SetSectionHeader: View {
     @State var title: String = ""
     
     var body: some View {
         HStack {
             Text(title)
-                .font(Font.custom("HS새마을체", size: 24))
+                .font(Font.custom(FontName.saemaul.rawValue, size: 24))
                 .foregroundColor(.black)
         }
     }
 }
 
 #Preview {
-    SetSectionHeaderView()
+    SetSectionHeader()
 }

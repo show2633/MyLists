@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LinearCalendar: View {
-    @State private var selectedDate = Date()
+    @Binding var selectedDate: Date
     @State private var currentDate = Date()
     private let calendar = Calendar.current
     private var daysInWeek: [Date] {
@@ -21,9 +21,10 @@ struct LinearCalendar: View {
         setWeekDaysHeader()
         setDaysScrollView()
     }
-    
-//MARK: - ViewBuilder & Function
-    
+}
+
+// MARK: - ViewBuilder
+extension LinearCalendar {
     // 년, 월, 일 표기
     @ViewBuilder
     private func setHeader() -> some View {
@@ -34,35 +35,24 @@ struct LinearCalendar: View {
                 }
                 
             } label: {
-                Image(systemName: "chevron.left")
+                Image(systemName: WeekChangeButtonImageName.chevronLeft.rawValue)
                     .foregroundColor(.red)
                     .bold()
             }
             Spacer()
             Text(weekRangeString(for: currentDate))
-                .font(Font.custom("HS새마을체", size: 18))
+                .font(Font.custom(FontName.saemaul.rawValue, size: 18))
             Spacer()
             Button {
                 withAnimation(.bouncy(duration: 0.5)) {
                     currentDate = calendar.date(byAdding: .weekOfYear, value: 1, to: currentDate) ?? currentDate
                 }
             } label: {
-                Image(systemName: "chevron.right")
+                Image(systemName: WeekChangeButtonImageName.chevronRight.rawValue)
                     .foregroundColor(.red)
                     .bold()
             }
         }
-    }
-    
-    // 한 주 표기 포맷 -> yyyy M.d
-    private func weekRangeString(for date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy M.d"
-        
-        let startOfWeek = calendar.date(from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: date)) ?? date
-        let endOfWeek = calendar.date(byAdding: .day, value: 6, to: startOfWeek) ?? date
-        
-        return "\(formatter.string(from: startOfWeek)) - \(formatter.string(from: endOfWeek))"
     }
     
     // 요일 표기
@@ -72,7 +62,7 @@ struct LinearCalendar: View {
         HStack {
             ForEach(days, id: \.self) { day in
                 Text(day)
-                    .font(Font.custom("HS새마을체", size: 17))
+                    .font(Font.custom(FontName.saemaul.rawValue, size: 17))
                     .frame(maxWidth: .infinity)
             }
         }
@@ -89,6 +79,20 @@ struct LinearCalendar: View {
             }
         }
     }
+}
+
+// MARK: - Function
+extension LinearCalendar {
+    // 한 주 표기 포맷 -> yyyy M.d
+    private func weekRangeString(for date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy M.d"
+        
+        let startOfWeek = calendar.date(from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: date)) ?? date
+        let endOfWeek = calendar.date(byAdding: .day, value: 6, to: startOfWeek) ?? date
+        
+        return "\(formatter.string(from: startOfWeek)) - \(formatter.string(from: endOfWeek))"
+    }
     
     // 날짜 한 칸
     private func dayCell(for date: Date) -> some View {
@@ -98,7 +102,7 @@ struct LinearCalendar: View {
         return VStack {
             Text("\(calendar.component(.day, from: date))")
                 .frame(width: 16)
-                .font(Font.custom("HS새마을체", size: 15))
+                .font(Font.custom(FontName.saemaul.rawValue, size: 15))
                 .padding()
                 .background(isSelected ? Color.mint.opacity(0.3) : (isToday ? Color.red.opacity(0.3) : Color.clear))
                 .cornerRadius(30)
@@ -122,7 +126,6 @@ struct LinearCalendar: View {
         }
     }
 }
-
-#Preview {
-    LinearCalendar()
-}
+//#Preview {
+//    LinearCalendar()
+//}

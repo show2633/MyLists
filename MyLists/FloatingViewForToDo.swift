@@ -8,54 +8,60 @@
 import SwiftUI
 
 struct FloatingViewForToDo: View {
-    @State var selectedGroup = TodoGroup.숙제.rawValue
+    @Environment(\.dismiss) var dismiss
+    @ObservedObject var mainViewModel: MainViewModel
+    @State var selectedGroup: String = ""
     @State var selectedDate = Date()
-    @State var selectedTime = DatePickerComponents()
-    @State var selectecColor = Color.black
+    @State var selectedTime = Date()
     @State var content: String = ""
-    @Binding var sheetModalForToDo: Bool
+    var comparisonTarget: String?
+    var checkedFunction: String
     
     var body: some View {
         NavigationView {
             VStack {
                 List {
-                    Section(header: SetSectionHeaderView(title: "Group")) {
+                    Section(header: SetSectionHeader(title: "Group")) {
                         setGroup()
                     }
                     
-                    Section(header: SetSectionHeaderView(title: "Date")) {
+                    Section(header: SetSectionHeader(title: "Date")) {
                         setDate()
                     }
                     
-                    Section(header:SetSectionHeaderView(title: "Content")) {
-                       setContent()
-                    }
-                    
-                    Section(header:SetSectionHeaderView(title: "Color")) {
-                        setColor()
+                    Section(header:SetSectionHeader(title: "Content")) {
+                        setContent()
                     }
                 }
                 .listStyle(.plain)
             }
             .toolbar {
                 ToolbarItem(placement:.topBarTrailing) {
-                    setToolbarButton(imageName: "square.and.arrow.up")
+                    setToolbarButton(imageName: SetToolBarButtonImageName.squareArrowUp.rawValue)
                 }
                 ToolbarItem(placement:.topBarLeading) {
-                    setToolbarButton(imageName: "xmark.square")
+                    setToolbarButton(imageName: SetToolBarButtonImageName.xmarkSquare.rawValue)
+                }
+            }
+            .onAppear() {
+                if let selectedGroup = mainViewModel.groupArray.first?.name {
+                    self.selectedGroup = selectedGroup
                 }
             }
         }
     }
     
-//MARK: - ViewBuilder & Function
     
+}
+
+//MARK: - ViewBuilder
+extension FloatingViewForToDo {
     @ViewBuilder
     func setGroup() -> some View {
         Picker("", selection: $selectedGroup) {
-            ForEach(TodoGroup.allCases) { group in
-                Text("\(group)").tag(group)
-                    .font(Font.custom("HS새마을체", size: 20))
+            ForEach(mainViewModel.groupArray) { group in
+                Text(group.name).tag(group.name)
+                    .font(Font.custom(FontName.saemaul.rawValue, size: 20))
             }
         }
         .frame(height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
@@ -69,7 +75,7 @@ struct FloatingViewForToDo: View {
                 .datePickerStyle(.automatic)
                 .frame(alignment: .leading)
                 .labelsHidden()
-            DatePicker("", selection: $selectedDate, displayedComponents: [.hourAndMinute])
+            DatePicker("", selection: $selectedTime, displayedComponents: [.hourAndMinute])
                 .datePickerStyle(.automatic)
                 .frame(alignment: .leading)
                 .labelsHidden()
@@ -79,24 +85,29 @@ struct FloatingViewForToDo: View {
     @ViewBuilder
     func setContent() -> some View {
         TextField("일정을 입력 해 주세요.", text: $content)
-            .font(Font.custom("HS새마을체", size: 17))
-    }
-    
-    @ViewBuilder
-    func setColor() -> some View {
-        ColorPicker("", selection: $selectecColor)
-            .frame(width: 0, alignment: .center)
-            .padding()
+            .font(Font.custom(FontName.saemaul.rawValue, size: 17))
+            .foregroundColor(.black)
     }
     
     @ViewBuilder
     func setToolbarButton(imageName: String) -> some View {
         Button {
             switch imageName {
-            case "square.and.arrow.up":
-                sheetModalForToDo = false
-            case "xmark.square":
-                sheetModalForToDo = false
+            case SetToolBarButtonImageName.squareArrowUp.rawValue:
+                switch checkedFunction {
+                case Function.create.rawValue:
+                    mainViewModel.createData(collection: CollectionName.toDoList.rawValue, dataForCreate: buildToDoData(checkedTodoList: nil, group: selectedGroup, date: dateToString(date: selectedDate), time: timeToString(date: selectedTime), content: content, isCompleted: false))
+                    
+                    dismiss()
+                case Function.update.rawValue:
+                    mainViewModel.updateData(collection: CollectionName.toDoList.rawValue, dataForUpdate: buildToDoData(checkedTodoList: nil, group: selectedGroup, date: dateToString(date: selectedDate), time: timeToString(date: selectedTime), content: content, isCompleted: false), comparisonTarget: comparisonTarget ?? "")
+                
+                    dismiss()
+                default:
+                    return
+                }
+            case SetToolBarButtonImageName.xmarkSquare.rawValue:
+                dismiss()
             default:
                 return
             }
